@@ -51,7 +51,6 @@ clone到本地
 
 首次提交
 > git push -u origin master
-执行提交推送代码
 
 
 第二次修改并提交
