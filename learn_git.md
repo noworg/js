@@ -4,7 +4,7 @@
 
 ---
 
-1、配置
+<span style="font-size:32px;color:#f00">1、配置</span>
 
 ssh密钥
  
