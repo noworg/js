@@ -1,15 +1,14 @@
 # git
 
-标签（空格分隔）： 未分类
+标签（空格分隔）： 工具
 
 ---
 
-<span style="font-size:32px;color:#f00">1、配置</span>
+##1、配置
 
-ssh密钥
- 
-> git config --global user.name "用户名"    
-
+####ssh密钥
+ 配置账户
+> git config --global user.name "用户名"   
 > git config --global user.email "邮箱"
 
 生成密钥
@@ -28,7 +27,7 @@ ssh密钥
 
 > ssh -T git@github.com
 
-2、代码提交
+##2、代码提交
 
 clone到本地
 > git clone git@github.com:noworg/js.git
@@ -51,6 +50,7 @@ clone到本地
 
 首次提交
 > git push -u origin master
+执行提交推送代码
 
 
 第二次修改并提交
@@ -61,7 +61,6 @@ clone到本地
 
 > git pull
 
- 3、版本管理   
- 
- 4、分支管理
+##3、版本管理
+##4、分支管理
 
