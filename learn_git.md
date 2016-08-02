@@ -12,7 +12,7 @@ ssh密钥
 > git config --global user.email "邮箱"
 
 生成密钥
-> ssh-keygen -t rsa -C "humingx@yeah.net"
+> ssh-keygen -t rsa -C "邮箱"
 
 添加密钥到ssh-agent
 > eval "$(ssh-agent -s)"
