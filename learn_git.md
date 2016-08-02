@@ -63,7 +63,7 @@ clone到本地
 
 强制更新
 >git fetch --all  
->git reset --hard origin/master 
+>git reset --hard origin/master    
 >git pull
 
 
