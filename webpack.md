@@ -9,7 +9,7 @@
 
 #####webpack配置：
 devtool：sourcemaps选项
-entry:入口文件地址   
+entry:入口文件地址
 ```js
 //code
 entry: {
@@ -99,17 +99,18 @@ plugins:插件
             NODE_ENV: JSON.stringify("production")
         }
     }),
+    new webpack.NoErrorsPlugin()
 ]
 
 ```
 启动
-> webpack --config webpack.config.js --progress --profile --colors -d   
+> webpack --config webpack.config.js --progress --profile --colors -d
 
- 1. d 启用sourcemaps
- 2. watch 启用文件监听
- 3. progress进度
- 4. profile信息输出
- 5. colors输出带颜色
+ 1. --d 启用sourcemaps
+ 2. --watch 启用文件监听
+ 3. --progress进度
+ 4. --profile信息输出
+ 5. --colors输出带颜色
 
 ####2、development模式
 #####webpack配置：
@@ -119,7 +120,60 @@ plugins: [
     //分隔文件
     new webpack.optimize.CommonsChunkPlugin('react', 'react.js'),
     new ExtractTextPlugin("aa.css"),
+    new webpack.NoErrorsPlugin()
 ]
 ```
+启动
+> webpack --config webpack.config.js --progress --profile --colors --d --watch
+
+
+####2、热部署模式
+#####webpack配置：
+设置监听
+```js
+watch: true
+```
+更改
+```js
+ entry: [
+        //添加热部署配置
+         'webpack-dev-server/client?http://localhost:3000',
+         'webpack/hot/only-dev-server',
+         './js/Menu/Menu.jsx'
+         ]
+```
+更改plugins配置
+```js
+plugins: [
+    new webpack.DefinePlugin({
+        'process.env.NODE_ENV': '"development"'
+    }),
+    //分隔文件
+    //new webpack.optimize.CommonsChunkPlugin('react', 'react.js'),
+    //热部署
+    new webpack.HotModuleReplacementPlugin(),
+    new webpack.NoErrorsPlugin()
+]
+```
+#####server配置：
+```js
+var webpack = require('webpack');
+var WebpackDevServer = require('webpack-dev-server');
+var config = require('./webpack.server.config');
+new WebpackDevServer(webpack(config), {
+    publicPath: config.output.publicPath,
+    hot: true,
+    noInfo: false,
+    historyApiFallback: true
+}).listen(3000, '127.0.0.1', function (err, result) {
+    if (err) {
+        console.log(err);
+    }
+    console.log('Listening at localhost:3000');
+});
+```
+
+
+
 
  
